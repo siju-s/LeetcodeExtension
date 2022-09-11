@@ -2,7 +2,9 @@ import json
 
 import requests
 from django.http import JsonResponse
-from django.shortcuts import render
+
+from myapi.models import User
+from myapi.serializers import UserSerializer
 
 
 def home(request):
@@ -48,19 +50,30 @@ def getUserBasicDetails(request, username):
     r = requests.post(url, json={'query': query, 'variables': variables})
     json_data = json.loads(r.text)
 
-    print('AA', json_data)
-    print(json.dumps(json_data, indent=4))
+    # print('AA', json_data)
+    # print(json.dumps(json_data, indent=4))
 
-    usernameHandle = json_data['data']['matchedUser']['username']
+    username = json_data['data']['matchedUser']['username']
     rank = json_data['data']['matchedUser']['profile']['ranking']
     name = json_data['data']['matchedUser']['profile']['realName']
+    views = json_data['data']['matchedUser']['profile']['postViewCount']
+    avatar = json_data['data']['matchedUser']['profile']['userAvatar']
 
     # total = json_data['data']['matchedUser']['submitStats']['acSubmissionNum'][0]['count']
     # easy = json_data['data']['matchedUser']['submitStats']['acSubmissionNum'][1]['count']
     # med = json_data['data']['matchedUser']['submitStats']['acSubmissionNum'][2]['count']
     # hard = json_data['data']['matchedUser']['submitStats']['acSubmissionNum'][3]['count']
+    user = User()
+    user.name = name
+    user.username = username
+    user.avatar = avatar
+    user.rank = rank
+    user.views = views
 
-    print(usernameHandle)
     print(rank)
     print(name)
-    return JsonResponse(json_data, status=201, safe=False)
+    user_detail = UserSerializer(user, context={"request": request})
+    print(type(user_detail.data))
+    print(type(json_data))
+
+    return JsonResponse(user_detail.data, status=201, safe=False)
