@@ -6,7 +6,7 @@ from django.shortcuts import render
 
 
 def home(request):
-    return render(request, 'index.html')
+    return JsonResponse('', status=200, safe=False)
 
 
 def getUserBasicDetails(request, username):
