@@ -24,14 +24,14 @@ SECRET_KEY = 'django-insecure-sn&vh#)91vb=^%a2104^sw(w0sn(gocs^*s)_ixd53e0zr_=uj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', 'leetcode-details.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', 'leetcode-details.herokuapp.com', '127.0.0.1']
 
 # Application definition
 
 INSTALLED_APPS = [
-'corsheaders',
     'myapi',
     'rest_framework',
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,9 +41,9 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
