@@ -22,9 +22,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-sn&vh#)91vb=^%a2104^sw(w0sn(gocs^*s)_ixd53e0zr_=uj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'leetcode-details.herokuapp.com']
 
 # Application definition
 
