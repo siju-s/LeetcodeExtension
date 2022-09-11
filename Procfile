@@ -1,1 +1,1 @@
-web: gunicorn leetcodeapi.wsgi
+web: gunicorn leetcodeapi.leetcodeapi.wsgi
