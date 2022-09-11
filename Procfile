@@ -1,1 +1,1 @@
-web: gunicorn --chdir leetcodeapi.leetcodeapi leetcodeapi.leetcodeapi.wsgi --log-file - --log-level debug
+web: gunicorn --chdir leetcodeapi leetcodeapi.wsgi --log-file - --log-level debug
