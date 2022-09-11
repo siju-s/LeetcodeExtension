@@ -1,2 +1,2 @@
-web: gunicorn leetcodeapi.wsgi --log-file - --log-level debug
+web: gunicorn leetcodeapi.leetcodeapi.wsgi --log-file - --log-level debug
 python manage.py migrate
