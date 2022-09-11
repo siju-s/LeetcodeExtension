@@ -14,3 +14,16 @@ class UserSerializer(serializers.Serializer):
         request = self.context.get('request')
         photo_url = car.avatar
         return request.build_absolute_uri(photo_url)
+
+class QuestionSerializer(serializers.Serializer):
+    easyCount = serializers.IntegerField(default=0)
+    mediumCount = serializers.IntegerField(default=0)
+    hardCount = serializers.IntegerField(default=0)
+    totalCount = serializers.IntegerField(default=0)
+    easySolvedCount = serializers.IntegerField(default=0)
+    mediumSolvedCount = serializers.IntegerField(default=0)
+    hardSolvedCount = serializers.IntegerField(default=0)
+    totalSolvedCount = serializers.IntegerField(default=0)
+
+
+

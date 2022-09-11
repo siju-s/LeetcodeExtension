@@ -12,3 +12,15 @@ class User(models.Model):
 
     def __str__(self):
         return self.username
+
+
+class QuestionsSolved(models.Model):
+    easyCount = models.IntegerField(default=0)
+    mediumCount = models.IntegerField(default=0)
+    hardCount = models.IntegerField(default=0)
+    totalCount = models.IntegerField(default=0)
+    easySolvedCount = models.IntegerField(default=0)
+    mediumSolvedCount = models.IntegerField(default=0)
+    hardSolvedCount = models.IntegerField(default=0)
+    totalSolvedCount = models.IntegerField(default=0)
+
