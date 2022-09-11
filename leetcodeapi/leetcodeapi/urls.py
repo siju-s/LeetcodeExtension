@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from myapi.views import *
+from leetcodeapi.myapi.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
